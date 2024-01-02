@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculator</title>
+    <style>
+        body{
+            padding-bottom: 5.8%;
+            margin-top: 8%;
+            margin-left: 40%;
+            background: rgb(0,0,0);
+            background: rgb(0,0,0);
+            background: linear-gradient(195deg, rgba(0,0,0,1) 13%, rgba(113,114,114,1) 67%, rgba(0,1,1,1) 96%);        
+            }
+        h1{
+            color: aliceblue;
+        }
+        input{
+            margin-left: 3px;
+            margin-bottom: 3%;
+            padding: 5%;
+            width: 90%;
+            font-size: 24px;
+        }
+        .grid-container {
+            margin-left: 3px;
+            display: grid;
+            grid-template-columns: 64px 64px 64px 64px;
+            gap: 4px;
+            row-gap: 4px;
+        }
+        .grid-container1{
+            margin-left: 3px;
+            display: grid;
+            grid-template-columns: 64px 64px 64px 64px;
+            column-gap: 5px;
+            margin-bottom: 3%;
+        }
+        button{
+            border-radius: 5px;
+            width:98%;
+            margin-left: 1.4%;
+            padding:8px;
+            border: none;
+            font-size: 23px;
+            background-color: rgb(210, 205, 205);
+            margin: 2%;
+        }
+        .red{
+            background-color: red;
+            color: white;
+        }
+        .grid-item {
+            box-shadow: 1px 1px 1px 2px  rgb(0, 0, 0);
+            background-color: rgb(210, 205, 205);
+            border: 1px solid rgba(0, 0, 0, 0.8);
+            padding: 9px;
+            font-size: 23px;
+            text-align: justify;
+            border-radius: 20px;
+        }
+        main{
+            box-shadow: 3px 3px 10px 1px inset white;
+            width: 30%;
+            padding: 2%;
+            border-radius: 12px;
+        }
+
+    </style>
+</head>
+<body>
+    <h1>Calculator</h1>
+    <main>
+            <input value="0" id="input" readonly>
+            <div class="grid-container1">
+            <button onclick="cld()">C</button>
+            <button onclick="clr()" class="red">AC</button>
+            </div>
+    <div class="grid-container">
+        <div class="grid-item"><button onclick="calculate('1')">1</button></div>
+        <div class="grid-item"><button onclick="calculate('2')">2</button></div>
+        <div class="grid-item"><button onclick="calculate('3')">3</button></div>  
+        <div class="grid-item"><button onclick="calculate('+')">+</button></div>  
+        <div class="grid-item"><button onclick="calculate('4')">4</button></div>
+        <div class="grid-item"><button onclick="calculate('5')">5</button></div>
+        <div class="grid-item"><button onclick="calculate('6')">6</button></div>  
+        <div class="grid-item"><button onclick="calculate('-')">-</button></div>  
+        <div class="grid-item"><button onclick="calculate('7')">7</button></div>
+        <div class="grid-item"><button onclick="calculate('8')">8</button></div>
+        <div class="grid-item"><button onclick="calculate('9')">9</button></div> 
+        <div class="grid-item"><button onclick="calculate('*')">*</button></div> 
+        <div class="grid-item"><button onclick="calculate('0')">0</button></div> 
+        <div class="grid-item"><button onclick="calculate('.')">.</button></div> 
+        <div class="grid-item"><button onclick="total()">=</button></div> 
+        <div class="grid-item"><button onclick="calculate('/')">/</button></div> 
+    </div>
+</main>
+    <script>
+        function calculate(x) {
+            if (document.getElementById("input").value == 0) {
+                document.getElementById("input").value = "";
+                document.getElementById("input").value = x;
+            } else {
+                document.getElementById("input").value += x;
+            }
+        }
+        function total() {
+            var x = document.getElementById("input").value;
+            var y = eval(x);
+            document.getElementById("input").value = y;
+        }
+        function clr() {
+            document.getElementById("input").value = "0";
+        }
+        function cld() {
+            let display = document.getElementById('input');
+            display.value = display.value.slice(0, -1);
+        }
+    </script>
+</body>
+</html>
